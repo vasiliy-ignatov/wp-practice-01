@@ -13,7 +13,7 @@
 							<?php the_title() ?>
 						</a>
 						</h5>
-						<p class="card-text"><?php the_content('Продолжить...') ?></p>
+						<p class="card-text"><?php the_excerpt();//the_content('Продолжить...') ?></p>
 						<a href="<?php the_permalink() ?>" class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
