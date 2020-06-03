@@ -6,8 +6,14 @@
 			<!-- Цикл WordPress -->
 			<div class="col-12">
 				<div class="card">
+					
 <!--                    <img src="..." class="card-img-top" alt="...">-->
 					<div class="card-body">
+						<?php if(has_post_thumbnail()): ?>
+							<?php the_post_thumbnail('my-thumb'); ?>
+						<?php else: ?>
+							<img src="https://i.picsum.photos/id/73/150/150.jpg" alt="">
+						<?php endif; ?>
 						<h5 class="card-title">
 						<a href="<?php the_permalink() ?>">
 							<?php the_title() ?>
