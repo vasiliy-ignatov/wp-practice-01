@@ -6,25 +6,33 @@
 			<!-- Цикл WordPress -->
 			<div class="col-12">
 				<div class="card">
-					
-<!--                    <img src="..." class="card-img-top" alt="...">-->
+					<div class="card-header">
+						<h5 class="card-title">
+							<a href="<?php the_permalink() ?>">
+								<?php the_title() ?>
+							</a>
+						</h5>
+					</div>
 					<div class="card-body">
 						<?php if(has_post_thumbnail()): ?>
-							<?php the_post_thumbnail('my-thumb'); ?>
+							<?php the_post_thumbnail('my-thumb', array('class' => 'float-left mr-3')); ?>
 						<?php else: ?>
-							<img src="https://i.picsum.photos/id/73/150/150.jpg" alt="">
+							<img class="float-left mr-3" src="https://i.picsum.photos/id/73/150/150.jpg" alt="">
 						<?php endif; ?>
-						<h5 class="card-title">
-						<a href="<?php the_permalink() ?>">
-							<?php the_title() ?>
-						</a>
-						</h5>
-						<p class="card-text"><?php the_excerpt();//the_content('Продолжить...') ?></p>
+						<p class="card-text"><?php the_excerpt(); ?></p>
+					</div>
+					<div class="card-footer">
 						<a href="<?php the_permalink() ?>" class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
-		<?php endwhile; else : ?>
+		<?php endwhile; ?>
+			<?php the_posts_pagination(array(
+				'show_all' => false,
+				'prev_text' => __('« Назад'),
+				'next_text' => __('Далее »')
+			)) ?>
+		<?php else : ?>
 			<p>Записей нет.</p>
 		<?php endif; ?>
 
