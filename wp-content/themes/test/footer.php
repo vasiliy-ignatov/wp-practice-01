@@ -1,3 +1,5 @@
-    <?php wp_footer(); ?>
-    </body>
+
+	<?php wp_footer(); ?>
+	</main>
+	</body>
 </html>

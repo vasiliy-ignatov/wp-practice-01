@@ -20,6 +20,7 @@ add_action('wp_enqueue_scripts', 'test_scripts');
 
 function test_setup() {
 	add_theme_support('post-thumbnails');
+	add_theme_support('title-tag');
 	add_image_size('my-thumb', 100, 100);
 };
 
@@ -36,7 +37,7 @@ function my_navigation_template( $template, $class ){
 		<div class="nav-links">%3$s</div>
 	</nav>
 	*/
-
+	
 	return '
 		<nav class="navigation %1$s" role="navigation">
 			<div class="nav-links">%3$s</div>
