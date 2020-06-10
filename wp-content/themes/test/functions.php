@@ -22,6 +22,10 @@ function test_setup() {
 	add_theme_support('post-thumbnails');
 	add_theme_support('title-tag');
 	add_image_size('my-thumb', 100, 100);
+	register_nav_menus(array(
+		'header_menu' => 'Меню в шапке',
+		'footer_menu' => 'Меню в футере'
+	));
 };
 
 add_action( 'after_setup_theme', 'test_setup' );
