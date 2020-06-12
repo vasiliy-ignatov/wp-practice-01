@@ -56,3 +56,15 @@ function my_navigation_template( $template, $class ){
 the_posts_pagination( array(
 	'end_size' => 2,
 ) ); 
+
+
+// виджеты
+function test_widgets_init() {
+	register_sidebar( array(
+		'name' => 'Сайдбар слева',
+		'id' => 'left-sidebar',
+		'description' => 'Область для виджетов в сайдбаре справа',
+	) );
+};
+
+add_action('widgets_init', 'test_widgets_init');
