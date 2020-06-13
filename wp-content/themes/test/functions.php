@@ -48,6 +48,10 @@ function test_setup() {
 		'width' => '400',
 		'height' => '40',
 	));
+
+	add_theme_support('custom-background', array(
+		'default-color' => 'dadada',
+	));
 };
 
 add_action( 'after_setup_theme', 'test_setup' );
