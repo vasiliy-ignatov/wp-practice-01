@@ -64,6 +64,8 @@ function test_widgets_init() {
 		'name' => 'Сайдбар слева',
 		'id' => 'left-sidebar',
 		'description' => 'Область для виджетов в сайдбаре справа',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget' => '</div>'
 	) );
 };
 
