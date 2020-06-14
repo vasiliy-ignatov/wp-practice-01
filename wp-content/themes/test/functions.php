@@ -49,6 +49,12 @@ function test_setup() {
 		'height' => '40',
 	));
 
+	add_theme_support('custom-header', array(
+		'default-image' => get_template_directory_uri() . '/assets/images/coast.jpg',
+		'width' => '2000',
+		'height' => '1300',
+	));
+
 	add_theme_support('custom-background', array(
 		'default-color' => 'dadada',
 	));
