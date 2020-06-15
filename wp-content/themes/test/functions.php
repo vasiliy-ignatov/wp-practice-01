@@ -2,6 +2,10 @@
 
 require_once __DIR__ . '/Test_menu.php';
 
+function debug($data) {
+	echo '<pre>' . print_r($data, 1) . '</pre>';
+}
+
 /*
 * Подключение скриптов и стилей
 */
@@ -84,4 +88,26 @@ function my_navigation_template( $template, $class ){
 // выводим пагинацию
 the_posts_pagination( array(
 	'end_size' => 2,
-) ); 
+) );
+
+
+// Customizer
+function test_customize_register($wp_customize) {
+	$wp_customize->add_setting('test_link_color', array(
+		'default' => '#007bff',
+		'sanitize_callback' => 'sanitize_hex_color',
+	));
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'test_link_color',
+			array(
+				'label' => 'Цвет ссылок',
+				'section' => 'colors',
+				'setting' => 'test_link_color',
+			)
+		)
+	);
+};
+
+add_action('customize_register', 'test_customize_register');
