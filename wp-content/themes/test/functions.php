@@ -111,3 +111,13 @@ function test_customize_register($wp_customize) {
 };
 
 add_action('customize_register', 'test_customize_register');
+
+function test_customize_css() {
+	$test_link_color = get_theme_mod('test_link_color');
+	echo <<<HEREDOC
+<style type="text/css">
+a { color: $test_link_color;}
+</style>
+HEREDOC;
+};
+add_action('wp_head', 'test_customize_css');

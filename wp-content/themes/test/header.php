@@ -9,9 +9,9 @@
 </head>
 <body <?php body_class(); ?>>
 
-<!-- Подключаем кастомайзер -->
-<?php debug(get_theme_mods()); ?>
-<?php echo get_theme_mod('background_color'); ?>
+<!-- Вывод объекта кастомайзера -->
+<?php // debug(get_theme_mods()); ?>
+<?php // echo get_theme_mod('background_color'); ?>
 
 <?php if(is_front_page()): ?>
 	<div class="header-image" style="background: url(<?php echo get_custom_header()->url; ?>) center no-repeat; background-size: cover; height: 50vh;"></div>
