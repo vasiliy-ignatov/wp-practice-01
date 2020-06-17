@@ -14,7 +14,7 @@ function test_scripts() {
     wp_enqueue_style('test-style', get_stylesheet_uri());
 
     wp_deregister_script('jquery');
-    wp_register_script('jquery', '//code.jquery.com/jquery-3.5.1.slim.min.js', array(), false, true);
+    wp_register_script('jquery', '//code.jquery.com/jquery-2.2.4.min.js', array(), false, true);
 
     wp_enqueue_script('test-popper', '//cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', array
     ('jquery'), false, true);
@@ -96,6 +96,7 @@ function test_customize_register($wp_customize) {
 	$wp_customize->add_setting('test_link_color', array(
 		'default' => '#007bff',
 		'sanitize_callback' => 'sanitize_hex_color',
+		'transport' => 'postMessage',
 	));
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
@@ -121,3 +122,16 @@ a { color: $test_link_color;}
 HEREDOC;
 };
 add_action('wp_head', 'test_customize_css');
+
+
+function test_customizer_js()
+{
+	wp_enqueue_script( 
+		'test_customizer',			//Give the script an ID
+		get_template_directory_uri().'/assets/js/test-customizer.js', //Point to file
+		array( 'jquery','customize-preview' ),	//Define dependencies
+		'',						//Define a version (optional) 
+		true						//Put script in footer?
+	);
+}
+add_action( 'customize_preview_init', 'test_customizer_js' );
